@@ -15,13 +15,11 @@ class LayoutDesktop extends StatefulWidget {
 }
 
 class _StateLayoutDesktop extends State<LayoutDesktop> {
-  // seccio és el valor del desplegable
   String seccio = dropDownList.first;
-  int item = -1; // Element seleccionat, -1 si no n'hi ha cap
+  int item = -1; 
 
   _StateLayoutDesktop();
 
-  // El desplegable amb 'Personatges, Jocs, Consoles'
   Widget _dropDown() {
     return DropdownButton<String>(
       value: seccio,
@@ -38,14 +36,11 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
     );
   }
 
-  // Mosta la llista seleccionada 'Personatges, Jocs, Consoles'
   Widget _itemsList(AppData appData) {
     if (!appData.dataReady(seccio)) {
-      // Si no tenim les dades, carregar-les i mostrar un 'loading'
       appData.load(seccio);
       return const Center(child: CircularProgressIndicator());
     } else {
-      // Dades disponibles, construir automàticament la llista
       var data = appData.getData(seccio);
       return ListView.builder(
         itemCount: data.length,
@@ -70,7 +65,6 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
     }
   }
 
-  // Barra lateral amb el seleccionable i la llista
   Widget _sideBar(AppData appData) {
     return Container(
       width: 200.0,
@@ -86,7 +80,6 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
     );
   }
 
-  // Contingut seleccionat
   Widget _content(AppData appData) {
     if (item != -1) {
       dynamic itemData = appData.getItemData(seccio, item);
@@ -101,7 +94,6 @@ class _StateLayoutDesktop extends State<LayoutDesktop> {
 
   @override
   Widget build(BuildContext context) {
-    // Referència a l’objecte que gestiona les dades de l’aplicació
     AppData appData = Provider.of<AppData>(context);
 
     return Scaffold(

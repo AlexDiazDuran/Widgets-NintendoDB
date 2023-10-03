@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class LayoutJoc extends StatelessWidget {
   final dynamic itemData;
 
-  // Constructor
   LayoutJoc({Key? key, required this.itemData}) : super(key: key);
 
   @override
@@ -12,7 +11,6 @@ class LayoutJoc extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Ocupar la mitad superior del espacio con la imagen
           SizedBox(
             width: MediaQuery.of(context).size.width * 100.0,
             height: MediaQuery.of(context).size.height * 0.5,
@@ -21,7 +19,6 @@ class LayoutJoc extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          // Ocupar la mitad inferior del espacio con los detalles del juego
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.4,
             child: Column(

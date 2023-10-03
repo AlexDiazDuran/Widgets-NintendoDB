@@ -21,7 +21,6 @@ class _StateLayoutMobileScreen2 extends State<LayoutMobileScreen2> {
 
   
 
-  // Segons la secció, ha de mostrar un layout amb unes dades o altres (layouts amb altres dades)
   Widget _setBody(BuildContext context, dynamic itemData) {
     switch (widget.seccio) {
       case 'Personatges': return LayoutPersonatge(itemData: itemData);
